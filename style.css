@@ -129,13 +129,15 @@ tr:hover{
 }
 
 @media screen and (max-width: 438px) {
-
-    #addBtn{
+  #addBtn{
         height: 40px;
-        font-size: small; 
+        display: table;
+        margin: 0 auto;
+        width: 30%;
     }
-
-    .completeBtn, .editBtn, .deleteBtn{
-        display: inline-block;
+    #inputTask {
+        display: table;
+        margin: 0 auto;
+        width: 80%;
     }
 } 

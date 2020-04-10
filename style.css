@@ -60,12 +60,14 @@ table {
 }
 
 tr {
-    border-bottom: 4px solid #aaa;
-    box-shadow: 0 0 4px 0px #b4a6a6 
+   border-bottom: 4px solid #aaa;
+    box-shadow: 0 0 4px 0px #b4a6a6;
+    display: table-row;
 }
 
 tr:hover{
-    box-shadow: 0 0 4px 0px #b4a6a6
+     box-shadow: 0 0 4px 0px rgb(119, 117, 117);
+    background-color:  #b4a6a6;
 }
 
 .rightTd {
@@ -76,56 +78,6 @@ tr:hover{
 .leftTd {
     float: left;
     margin: 5px;
-}
-
-.editBtn {
-    background-color: rgb(48, 118, 186);
-    border-radius: 5px;
-    height: 30px;
-    color: white;
-}
-
-.completeBtn {
-    background-color: rgb(236, 174, 78);
-    border-radius: 5px;
-    height: 30px;
-    color: white;
-}
-
-.completeBtn2 {
-    background-color: rgb(91, 167, 68);
-  }
-
-.complete{
-    text-decoration: line-through;
-}
-
-.deleteBtn {
-    background-color: rgb(227, 77, 82);
-    border-radius: 5px;
-    height: 30px;
-    color: white;
-}
-
-.completeBtn:hover{
-    background-color: gray;
-    cursor: pointer;
-    background-color: white;
-    color: black;
-}
-
-.deleteBtn:hover{
-    background-color: gray;
-    cursor: pointer;
-    background-color: white;
-    color: black;
-}
-
-.editBtn:hover{
-    background-color: gray;
-    cursor: pointer;
-    background-color: white;
-    color: black;
 }
 
 @media screen and (max-width: 438px) {

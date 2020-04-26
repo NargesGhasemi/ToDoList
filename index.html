@@ -16,7 +16,11 @@
             <input  type = "text" id = "inputTask" placeholder = "Enter new task here...">
             <button id = "addBtn" onclick = "addBtnClick()" >add</button>
         </div>
-     
+        <div class = "tab">
+            <button class = "tabLink" onclick = "tabLinkClick(this,'all')">All</button>
+            <button class = "tabLink" onclick = "tabLinkClick(this,'active')">Active</button>
+            <button class = "tabLink" onclick = "tabLinkClick(this,'complete')">Completed</button>
+        </div>
          <table  id = "todoListTable">
           <tr>
             <td>

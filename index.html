@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>To DO App</title>
-    <meta name = "viewport" content = "width = device-width, initial-Scale = 1.0" />
-    <meta charset = "UTF-8" />
-    <link href = "style.css" rel = "stylesheet" type = "text/css" >    
+        <title>Todo App</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <link href="style.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <header>
-            <h1>To-Do List</h1>
+            <h1>Todo List</h1>
         </header>
 
         <div class="inputDiv">
-            <input  type = "text" id = "inputTask" placeholder = "Enter new task here...">
-            <button id = "addBtn" onclick = "addBtnClick()" >add</button>
+            <input type="text" id="inputTask" placeholder="Enter new task here...">
+            <button id="addBtn" onclick="addBtnClick()">add</button>
         </div>
-        <div class = "tab">
-            <button class = "tabLink" onclick = "tabLinkClick(this,'all')">All</button>
-            <button class = "tabLink" onclick = "tabLinkClick(this,'active')">Active</button>
-            <button class = "tabLink" onclick = "tabLinkClick(this,'complete')">Completed</button>
+        <div class="tab">
+            <button class="tabLink" onclick="tabLinkClick(this,'all')">All</button>
+            <button class="tabLink" onclick="tabLinkClick(this,'active')">Active</button>
+            <button class="tabLink" onclick="tabLinkClick(this,'complete')">Completed</button>
         </div>
-         <table  id = "todoListTable">
-          <tr>
-            <td>
-             nothing to do...
-            </td>
-           </tr>
+        <table  id="todoListTable">
+            <tr>
+                <td>
+                    nothing to do...
+                </td>
+            </tr>
         </table>
-        <script src = "index.js" ></script>
+        <script src="index.js"></script>
     </body>
 </html>

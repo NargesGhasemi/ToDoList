@@ -56,7 +56,7 @@ function Complete(id) {
 //when user click the delete button
 function remove(id) {
   if (!confirm("Are you sure to delete this one?")) { return }
-  taskLists.splice(todo => todo.id !== id, 1);
+  taskLists.splice(todo => todo.id == id, 1);
   filterTaskList(_currentTab);
   render();
 }

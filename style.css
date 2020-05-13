@@ -45,6 +45,7 @@ header {
     width: 99.8%;
     overflow: hidden;
     background-color: #e6dfdf; 
+    /* border: 1px solid #ccc;*/
     border:2px solid #a3a3a3;
   }
   
@@ -60,10 +61,12 @@ header {
   }
   
   .tab button:hover {
+    /* background-color: #ddd; */
     background-color: #d6c8c8;
   }
   
   .tab button.active {
+    /* background-color: #ccc; */
     background-color: #b4a6a6;
   }
 
@@ -78,19 +81,22 @@ header {
     border: 2px solid  rgb(119, 117, 117); 
 }
 
-table {
+.table {
     width: 99.85%;
+    /* margin: 2px; */
     padding: 20px;
     border:2px solid #a3a3a3;
+    border-top: 0;
 }
 
-tr {
-    border-bottom: 4px solid #aaa;
-    box-shadow: 0 0 4px 0px #b4a6a6;
-    display: table-row;
+.tr {
+    border-bottom: 2px solid #aaa;
+    box-shadow: 0 0 2px 0px #b4a6a6;
+    display: flow-root;
+    width: 100%;
 }
 
-tr:hover {
+.tr:hover {
     box-shadow: 0 0 4px 0px rgb(119, 117, 117);
     background-color: #f1f1f1; 
 }
@@ -118,6 +124,10 @@ tr:hover {
     height: 30px;
     color: white;
 }
+
+/* .completeBtn2 {
+    background-color: rgb(107, 148, 94);
+  } */
 
 .complete {
     text-decoration: line-through;
@@ -165,4 +175,4 @@ tr:hover {
         margin: 0 auto;
         width: 80%;
     }
-} 
+}  

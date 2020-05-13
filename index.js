@@ -1,48 +1,48 @@
 "use strict";
 
+var newTask = document.getElementById("inputTask");
 var taskLists = [];
-var _filterTaskLists = [];
+// var _filterTaskLists = [];
 var _currentTab = "all";
 
 //render tasklist
-function render() {
+function render(taskLists) {
   var myTable = "";
-  if (_filterTaskLists.length == 0) {
-    myTable += "<tr><td> nothing to do... </td>";
+  if (taskLists.length == 0) {
+    myTable += "<div class='tr'> nothing to do... </div>";
   }
 
-  for (var i = 0; i < _filterTaskLists.length; i++) {
-    if (_filterTaskLists[i].isComplete) {
-      myTable += "<tr><td class='leftTd'>" + i + "</td><td class='leftTd complete'>";
+  for (var i = 0; i < taskLists.length; i++) {
+    if (taskLists[i].isComplete) {
+      myTable += "<div class='tr'><div class='td leftTd'>" + i + "</div><div class='td leftTd complete'>";
     }
     else {
-      myTable += "<tr><td class='leftTd'>" + i + "</td><td class='leftTd'>";
+      myTable += "<div class='tr'><div class='td leftTd'>" + i + "</div><div class='td leftTd'>";
     }
-    myTable += _filterTaskLists[i].text + "</td>" +
-      "<td class='rightTd'><button class='deleteBtn' onclick ='remove(" + _filterTaskLists[i].id + "," + i + ")'>delete</button></td>" +
-      "<td class='rightTd'><button class='editBtn'onclick ='edit(" + _filterTaskLists[i].id + "," + i + " )'>edit</button></td>" +
-      "<td class='rightTd'><button class='completeBtn' onclick ='Complete(" + _filterTaskLists[i].id + "," + i + ")'>complete</button></td>" +
-      "</tr>";
+    myTable += taskLists[i].text + "</div>" +
+      "<div class='td rightTd'><button class='deleteBtn' onclick ='remove(" + taskLists[i].id + "," + i + ")'>delete</button></div>" +
+      "<div class='td rightTd'><button class='editBtn'onclick ='edit(" + taskLists[i].id + "," + i + " )'>edit</button></div>" +
+      "<div class='td rightTd'><button class='completeBtn' onclick ='Complete(" + taskLists[i].id + "," + i + ")'>complete</button></div>" +
+      "</div>";
   }
   document.getElementById("todoListTable").innerHTML = myTable;
 }
 
 //add to list
 function add() {
-  var newTask = document.getElementById("inputTask");
-  if (!newTask.value) {
+  var newTodo = newTask.value;
+  if (!newTodo) {
     alert("plese enter your new task!");
     return;
   }
   var task = {
     id: taskLists.length > 0 ? taskLists[taskLists.length - 1].id + 1 : 1,
-    text: newTask.value,
+    text: newTodo,
     isComplete: false
   }
   taskLists.push(task);
   newTask.value = "";
   filterTaskList(_currentTab);
-  render();
 }
 
 //when user click the complete button
@@ -50,22 +50,22 @@ function Complete(id) {
   taskLists = taskLists.map(todo =>
     todo.id === id ? { id: todo.id, text: todo.text, isComplete: !todo.isComplete } : todo);
   filterTaskList(_currentTab);
-  render();
 }
 
 //when user click the delete button
 function remove(id) {
   if (!confirm("Are you sure to delete this one?")) { return }
-  /*taskLists.splice(todo => todo.id == id, 1);*/
+  // taskLists.splice(todo => todo.id == id, 1);
   taskLists = taskLists.filter(todo => todo.id !== id, 1);
   filterTaskList(_currentTab);
-  render();
 }
 
 //when user click the edit button
 function edit(id, index) {
-  var editeElem = document.getElementsByClassName("editBtn");
-  var selectTask = editeElem[index].parentElement.parentElement.childNodes[1].textContent;
+  // var editeElem = document.getElementsByClassName("editBtn");
+  // var selectTask = editeElem[index].parentElement.parentElement.childNodes[1].textContent;
+
+  var selectTask = event.target.parentElement.parentElement.childNodes[1].textContent;
   var editedTask = prompt("please edit task", selectTask);
 
   if (!editedTask) return
@@ -73,14 +73,12 @@ function edit(id, index) {
     todo.id === id ? { id: todo.id, text: editedTask, isComplete: todo.isComplete } : todo);
 
   filterTaskList(_currentTab);
-  render();
 }
 
 //when user click one button in link List
 function tabLinkClick(myButton, currentTab) {
   _currentTab = currentTab;
   filterTaskList(currentTab);
-  render();
 
   //set active class for current tab 
   var tabLink = document.getElementsByClassName("tabLink");
@@ -94,13 +92,13 @@ function tabLinkClick(myButton, currentTab) {
 function filterTaskList(currentTab) {
   switch (currentTab) {
     case "active":
-      _filterTaskLists = taskLists.filter(taskLists => !taskLists.isComplete);
+      render(taskLists.filter(taskLists => !taskLists.isComplete));
       break;
     case "complete":
-      _filterTaskLists = taskLists.filter(taskLists => taskLists.isComplete);
+      render(taskLists.filter(taskLists => taskLists.isComplete));
       break;
     default:
-      _filterTaskLists = taskLists;
+      render(taskLists);
       break;
   }
 }
